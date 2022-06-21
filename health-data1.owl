@@ -1,0 +1,551 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://example.com/owlapi/healthdata"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://example.com/owlapi/healthdata">
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <ObjectProperty IRI="#registered_patient"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#attendmethod"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#doctor_3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#doctor_4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#doctor_1"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#registered_patient_inverse"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#doctor_2"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasAge"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#timeofappointment"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasDisease"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#seenBy_inverse"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#appointment"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#doctor_5"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#9"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#8"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#seenBy"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasSex"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#7"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#6"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#5"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#appointment_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#appointment_1"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#workInClinic"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#appointment_0"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#patient"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#doctor"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#10"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#appointment"/>
+        <NamedIndividual IRI="#appointment_0"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#appointment"/>
+        <NamedIndividual IRI="#appointment_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#appointment"/>
+        <NamedIndividual IRI="#appointment_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#doctor"/>
+        <NamedIndividual IRI="#doctor_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#doctor"/>
+        <NamedIndividual IRI="#doctor_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#doctor"/>
+        <NamedIndividual IRI="#doctor_3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#doctor"/>
+        <NamedIndividual IRI="#doctor_4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#doctor"/>
+        <NamedIndividual IRI="#doctor_5"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#patient"/>
+        <NamedIndividual IRI="#1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#patient"/>
+        <NamedIndividual IRI="#10"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#patient"/>
+        <NamedIndividual IRI="#2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#patient"/>
+        <NamedIndividual IRI="#3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#patient"/>
+        <NamedIndividual IRI="#4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#patient"/>
+        <NamedIndividual IRI="#5"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#patient"/>
+        <NamedIndividual IRI="#6"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#patient"/>
+        <NamedIndividual IRI="#7"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#patient"/>
+        <NamedIndividual IRI="#8"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#patient"/>
+        <NamedIndividual IRI="#9"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#registered_patient"/>
+        <NamedIndividual IRI="#appointment_0"/>
+        <NamedIndividual IRI="#1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#seenBy"/>
+        <NamedIndividual IRI="#appointment_0"/>
+        <NamedIndividual IRI="#doctor_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#registered_patient"/>
+        <NamedIndividual IRI="#appointment_1"/>
+        <NamedIndividual IRI="#1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#seenBy"/>
+        <NamedIndividual IRI="#appointment_1"/>
+        <NamedIndividual IRI="#doctor_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#registered_patient"/>
+        <NamedIndividual IRI="#appointment_2"/>
+        <NamedIndividual IRI="#2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#seenBy"/>
+        <NamedIndividual IRI="#appointment_2"/>
+        <NamedIndividual IRI="#doctor_3"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#seenBy_inverse"/>
+        <NamedIndividual IRI="#doctor_1"/>
+        <NamedIndividual IRI="#appointment_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#seenBy_inverse"/>
+        <NamedIndividual IRI="#doctor_2"/>
+        <NamedIndividual IRI="#appointment_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#seenBy_inverse"/>
+        <NamedIndividual IRI="#doctor_3"/>
+        <NamedIndividual IRI="#appointment_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#registered_patient_inverse"/>
+        <NamedIndividual IRI="#1"/>
+        <NamedIndividual IRI="#appointment_0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#registered_patient_inverse"/>
+        <NamedIndividual IRI="#1"/>
+        <NamedIndividual IRI="#appointment_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#registered_patient_inverse"/>
+        <NamedIndividual IRI="#2"/>
+        <NamedIndividual IRI="#appointment_2"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#attendmethod"/>
+        <NamedIndividual IRI="#appointment_0"/>
+        <Literal>online </Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#timeofappointment"/>
+        <NamedIndividual IRI="#appointment_0"/>
+        <Literal>2022-03-01 10:30:48</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#attendmethod"/>
+        <NamedIndividual IRI="#appointment_1"/>
+        <Literal>in person</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#timeofappointment"/>
+        <NamedIndividual IRI="#appointment_1"/>
+        <Literal>2022-03-02 16:35:48</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#attendmethod"/>
+        <NamedIndividual IRI="#appointment_2"/>
+        <Literal>in person</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#timeofappointment"/>
+        <NamedIndividual IRI="#appointment_2"/>
+        <Literal>2022-05-02 09:38:01</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSex"/>
+        <NamedIndividual IRI="#doctor_1"/>
+        <Literal>F</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#workInClinic"/>
+        <NamedIndividual IRI="#doctor_1"/>
+        <Literal>gp1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSex"/>
+        <NamedIndividual IRI="#doctor_2"/>
+        <Literal>M</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#workInClinic"/>
+        <NamedIndividual IRI="#doctor_2"/>
+        <Literal>gp1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSex"/>
+        <NamedIndividual IRI="#doctor_3"/>
+        <Literal>M</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#workInClinic"/>
+        <NamedIndividual IRI="#doctor_3"/>
+        <Literal>gp2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSex"/>
+        <NamedIndividual IRI="#doctor_4"/>
+        <Literal>M</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#workInClinic"/>
+        <NamedIndividual IRI="#doctor_4"/>
+        <Literal>gp2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSex"/>
+        <NamedIndividual IRI="#doctor_5"/>
+        <Literal>F</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#workInClinic"/>
+        <NamedIndividual IRI="#doctor_5"/>
+        <Literal>gp2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasAge"/>
+        <NamedIndividual IRI="#1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">23</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDisease"/>
+        <NamedIndividual IRI="#1"/>
+        <Literal>fever</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSex"/>
+        <NamedIndividual IRI="#1"/>
+        <Literal>F</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasAge"/>
+        <NamedIndividual IRI="#10"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">16</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDisease"/>
+        <NamedIndividual IRI="#10"/>
+        <Literal>heart disease</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSex"/>
+        <NamedIndividual IRI="#10"/>
+        <Literal>F</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasAge"/>
+        <NamedIndividual IRI="#2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">21</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDisease"/>
+        <NamedIndividual IRI="#2"/>
+        <Literal>fever</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSex"/>
+        <NamedIndividual IRI="#2"/>
+        <Literal>M</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasAge"/>
+        <NamedIndividual IRI="#3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">10</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDisease"/>
+        <NamedIndividual IRI="#3"/>
+        <Literal>fever</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSex"/>
+        <NamedIndividual IRI="#3"/>
+        <Literal>M</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasAge"/>
+        <NamedIndividual IRI="#4"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">40</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDisease"/>
+        <NamedIndividual IRI="#4"/>
+        <Literal>heart disease</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSex"/>
+        <NamedIndividual IRI="#4"/>
+        <Literal>F</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasAge"/>
+        <NamedIndividual IRI="#5"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">64</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDisease"/>
+        <NamedIndividual IRI="#5"/>
+        <Literal>heart disease</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSex"/>
+        <NamedIndividual IRI="#5"/>
+        <Literal>F</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasAge"/>
+        <NamedIndividual IRI="#6"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">8</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDisease"/>
+        <NamedIndividual IRI="#6"/>
+        <Literal>Congenital disorders</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSex"/>
+        <NamedIndividual IRI="#6"/>
+        <Literal>F</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasAge"/>
+        <NamedIndividual IRI="#7"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">35</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDisease"/>
+        <NamedIndividual IRI="#7"/>
+        <Literal>metabolic disease</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSex"/>
+        <NamedIndividual IRI="#7"/>
+        <Literal>M</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasAge"/>
+        <NamedIndividual IRI="#8"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">62</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDisease"/>
+        <NamedIndividual IRI="#8"/>
+        <Literal>flu</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSex"/>
+        <NamedIndividual IRI="#8"/>
+        <Literal>M</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasAge"/>
+        <NamedIndividual IRI="#9"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">43</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasDisease"/>
+        <NamedIndividual IRI="#9"/>
+        <Literal>lung disease</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSex"/>
+        <NamedIndividual IRI="#9"/>
+        <Literal>F</Literal>
+    </DataPropertyAssertion>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#registered_patient"/>
+        <ObjectProperty IRI="#registered_patient_inverse"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#seenBy"/>
+        <ObjectProperty IRI="#seenBy_inverse"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#registered_patient"/>
+        <Class IRI="#appointment"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#seenBy"/>
+        <Class IRI="#appointment"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#registered_patient"/>
+        <Class IRI="#patient"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#seenBy"/>
+        <Class IRI="#doctor"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#attendmethod"/>
+        <Class IRI="#appointment"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasAge"/>
+        <Class IRI="#patient"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasDisease"/>
+        <Class IRI="#patient"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasSex"/>
+        <Class IRI="#doctor"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasSex"/>
+        <Class IRI="#patient"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#timeofappointment"/>
+        <Class IRI="#appointment"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#workInClinic"/>
+        <Class IRI="#doctor"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#attendmethod"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasAge"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasDisease"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasSex"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#timeofappointment"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#workInClinic"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 5.1.19.2021-07-31T19:16:32Z) https://github.com/owlcs/owlapi/ -->
+
+
