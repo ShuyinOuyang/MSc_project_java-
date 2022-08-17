@@ -49,7 +49,7 @@ class Utility{
         OWLDataFactory factory = manager.getOWLDataFactory();
 
         // local copy of ontology
-        File file = new File("/javaProject/hermit/health-data1.owl");
+        File file = new File("/javaProject/hermit/health-data.owl");
         manager.saveOntology(ont, IRI.create(file.toURI()));
         OWLXMLOntologyFormat owlxmlFormat = new OWLXMLOntologyFormat();
         manager.saveOntology(ont, owlxmlFormat, IRI.create(file.toURI()));
@@ -153,7 +153,14 @@ public class generateOntology {
     public static void main(String[] args) throws IOException, OWLOntologyCreationException, OWLOntologyStorageException {
         String filepath = "/pythonProject/Msc Project/main/ontology.json";
         Utility utility = new Utility();
+//        utility.createontology(filepath);
+
+
+        // with time cost
+        long startTime=System.currentTimeMillis();
         utility.createontology(filepath);
-//        System.out.println(cls);
+        long endTime=System.currentTimeMillis();
+        System.out.println("Total time cost： "+(endTime-startTime)+"   ms");
+
     }
 }

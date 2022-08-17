@@ -1,3 +1,6 @@
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import org.coode.owlapi.manchesterowlsyntax.ManchesterOWLSyntaxEditorParser;
 import org.semanticweb.HermiT.Reasoner;
 import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -17,6 +20,23 @@ import java.util.Set;
 
 class Method{
     //ont.getOntologyID().getOntologyIRI()
+
+    public String readJsonFile(String filepath) throws IOException {
+//        String filepath = "/pythonProject/Msc Project/main/ontology.json";
+        String jsonStr = "";
+        File file = new File(filepath);
+        FileReader fileReader = new FileReader(file);
+        Reader reader = new InputStreamReader(new FileInputStream(file),"utf-8");
+        int ch = 0;
+        StringBuffer sb = new StringBuffer();
+        while ((ch = reader.read())!=-1) {
+            sb.append((char) ch);
+        }
+        fileReader.close();
+        reader.close();
+        jsonStr = sb.toString();
+        return jsonStr;
+    }
     public void useReasoner(String path) throws OWLOntologyCreationException {
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
         File file = new File(path);
@@ -193,6 +213,48 @@ class Method{
 
     }
 
+
+    public void policyQueryChecking(String path, String policy_query_path) throws OWLOntologyCreationException, IOException {
+
+        try {
+            OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
+            File file = new File(path);
+            OWLOntology ont = manager.loadOntologyFromOntologyDocument(file);
+            OWLReasonerFactory reasonerFactory = new Reasoner.ReasonerFactory();
+            ConsoleProgressMonitor progressMonitor = new ConsoleProgressMonitor();
+            OWLReasonerConfiguration config = new SimpleConfiguration(progressMonitor);
+            OWLReasoner reasoner = reasonerFactory.createReasoner(ont, config);
+//            reasoner.isEntailed()
+            ShortFormProvider shortFormProvider = new SimpleShortFormProvider();
+            DLQueryPrinter dlQueryPrinter = new DLQueryPrinter(new DLQueryEngine(
+                    reasoner, shortFormProvider), shortFormProvider);
+            String s = readJsonFile(policy_query_path);
+            JSONObject jobj = JSON.parseObject(s);
+            // get query
+            String query = jobj.getString("query");
+            // get policy
+            JSONArray policies = jobj.getJSONArray("policy");
+            //  TODO for loop
+            boolean flag = true;
+            for(Object policy: policies) {
+                String policy_str = String.valueOf(policy);
+                if (subsumptionChecking(dlQueryPrinter, policy_str, query)) {
+                    System.out.println("Yes, policy (" + policy_str + ") subsumes query (" + query + ")");
+                    flag = false;
+                    break;
+                }
+
+            }
+            if(flag){
+                System.out.println("No, no subsumption relationship.");
+            }
+        }catch (OWLOntologyCreationException e) {
+            System.out.println("Could not load ontology: " + e.getMessage());
+        } catch (IOException ioEx) {
+            System.out.println(ioEx.getMessage());
+        }
+
+    }
     private static void doCheckLoop(DLQueryPrinter dlQueryPrinter) throws IOException{
         while(true){
             System.out
@@ -220,6 +282,7 @@ class Method{
         }
     }
 
+
     private static boolean subsumptionChecking(DLQueryPrinter dlQueryPrinter, String classExpression1,String classExpression2){
         // Policy
         Set<OWLClass> directSubClass1 = dlQueryPrinter.getSubClasses(classExpression1,true);
@@ -234,32 +297,38 @@ class Method{
         Set<OWLClass> directSuperClass2 = dlQueryPrinter.getSuperClasses(classExpression2,true);
         Set<OWLNamedIndividual> individual2 = dlQueryPrinter.getIndividual(classExpression2,true);
         OWLClass class2 = dlQueryPrinter.getOWLClass(classExpression2);
+        // trivial checking, check whether the protected target is empty
+        if (individual1.isEmpty()) {
+            System.out.println("Policy (" + classExpression1 + ") is trivial");
+            return false;
+        }
+
         // policy's allsubclasses contain concept's direct superclass
         if (allSubClass1.containsAll(directSuperClass2)){
-            System.out.println(1);
+            System.out.println("Subsumption type 1");
             return true;
         }
         // policy's allsubclasses contain concept's class
         if (class2!=null && allSubClass1.contains(class2)){
-            System.out.println(2);
+            System.out.println("Subsumption type 2");
             return true;
         }
         // concepts's allsuperclasses contain any one of policy's direct subclasses
         for (OWLClass dsc1:directSubClass1){
             if (allSuperClass2.contains(dsc1)){
-                System.out.println(3);
+                System.out.println("Subsumption type 3");
                 return true;
             }
         }
         // concepts's allsuperclasses contain policy's class
         if (class1!=null && allSuperClass2.contains(class1)){
-            System.out.println(4);
+            System.out.println("Subsumption type 4");
             return true;
         }
         // when policy and concept are at similar hierarchy position
         if (directSuperClass2.containsAll(directSuperClass1) && directSubClass2.containsAll(directSubClass1)
                 && individual1.containsAll(individual2) && !individual1.isEmpty() && !individual2.isEmpty()){
-            System.out.println(5);
+            System.out.println("Subsumption type 5");
             return true;
         }
         return false;
@@ -330,7 +399,6 @@ class DLQueryEngine {
         OWLOntology rootOntology = reasoner.getRootOntology();
         parser = new DLQueryParser(rootOntology, shortFormProvider);
     }
-
 
     public Set<OWLClass> getSuperClasses(String classExpressionString, boolean direct)
             throws ParserException {
@@ -490,10 +558,19 @@ public class query {
     public static void main(String[] args) throws OWLOntologyCreationException, IOException, OWLOntologyStorageException {
 //        String healthDataOntology = "/pythonProject/Msc Project/posc-groceries.owl";
 //        String healthDataOntology = "/pythonProject/Msc Project/health-data.owl";
-        String healthDataOntology = "/javaProject/hermit/health-data1.owl";
+//        String healthDataOntology = "/javaProject/hermit/health-data1.owl";
+        String healthDataOntology = "/javaProject/hermit/health-data.owl";
+        String policy_query_path = "/pythonProject/Msc Project/main/test_data/policy_query.json";
         Method m = new Method();
 //        m.ELSubsumptionChecking(healthDataOntology);
         m.DLQueryExample(healthDataOntology);
+//        m.policyQueryChecking(healthDataOntology, policy_query_path);
+
+        // with time cost
+//        long startTime=System.currentTimeMillis();
+//        m.policyQueryChecking(healthDataOntology, policy_query_path);
+//        long endTime=System.currentTimeMillis();
+//        System.out.println("Total time cost： "+(endTime-startTime)+"   ms");
     }
 
 }
